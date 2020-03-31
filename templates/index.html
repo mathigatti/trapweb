@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Alethea AI{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        <p>
+        	<textarea id="first" name="text" type="text" rows="10" cols="50">I am saying something</textarea>
+        </p>
+		<input type="number" id="speed" name="speed" value="80.0" step="1" min="40.0" max="200.0">
+	</p>
+        <input type="submit" value="Synthesize">
+    </form>
+{% endblock %}
