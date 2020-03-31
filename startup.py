@@ -54,7 +54,7 @@ def stretch_text(notas, texto, durs, removed_values=1):
     notas = notas[0:lastWord+1] + notas[lastWord+1+removed_values:]
     return notas, texto, durs
                                            
-def trap(textos,sample="v1",oct=5,lang="en"):
+def trap(textos,sample="v1",oct=5,lang="en",tempo=80.0):
     texto_l = []
     durs_l = []
     notas_l = []
@@ -71,4 +71,4 @@ def trap(textos,sample="v1",oct=5,lang="en"):
         texto_l += texto
         durs_l += durs
         notas_l += notas
-    voice(notas_l,dur=durs_l,lyrics=" ".join(texto_l),file=sample,octave=oct,lang=lang)
+    voice(notas_l,dur=durs_l,lyrics=" ".join(texto_l),file=sample,octave=oct,lang=lang,tempo=tempo)
