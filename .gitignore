@@ -1,0 +1,3 @@
+static/*.wav
+__pycache__/
+static/last*

@@ -72,3 +72,21 @@ def trap(textos,sample="v1",oct=5,lang="en",tempo=80.0):
         durs_l += durs
         notas_l += notas
     voice(notas_l,dur=durs_l,lyrics=" ".join(texto_l),file=sample,octave=oct,lang=lang,tempo=tempo)
+
+
+def synthesize(textos,notes=[0],durs=[8],sample="v1",oct=5,lang="en",tempo=80.0):
+    texto_l = []
+    durs_l = []
+    notas_l = []
+
+    assert len(notes) == len(durs)
+
+    for texto in textos:
+        texto = vocals(texto,len(list(filter(lambda x : x != -99,notes))))
+
+        texto = [texto[i] if notes[i] != -99 else "." for i in range(len(notes))]
+
+        texto_l += texto
+        durs_l += durs
+        notas_l += notes
+    voice(notas_l,dur=durs_l,lyrics=" ".join(texto_l),file=sample,octave=oct,lang=lang,tempo=tempo)

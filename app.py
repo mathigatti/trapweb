@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-from startup import trap
+from startup import trap,synthesize
 import time
 from flask import send_from_directory
 import os
@@ -28,6 +28,22 @@ def home():
             return redirect('/sample/'+filename)
 
     return render_template('index.html', message=error)
+
+
+@app.route('/synthesize', methods=['POST'])
+def synthesize_api():
+    content = request.json
+    text = content['text']
+    bpm = int(float(content['bpm']))
+    octave = int(float(content['octave']))
+    notes = content['notes']
+    durs = content['durs']
+
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
+    filename = "sample_"+timestamp+".wav"
+
+    synthesize(text,notes=notes,durs=durs,oct=octave,sample=filename,tempo=bpm)
+    return filename
 
 @app.route('/sample/<path:path>')
 def sample(path):
