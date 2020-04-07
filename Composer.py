@@ -69,4 +69,4 @@ def compose(notes, durations, scale, root_note, octave, new_midi_path, new_music
     composition = toList(durations,notes,scale,root_note,octave)
     print(composition)
     createMidi(new_midi_path, composition)
-    os.system("musescore "+ new_midi_path +" -o " + new_musicxml_path)
+    os.system("export QT_QPA_PLATFORM=offscreen && musescore "+ new_midi_path +" -o " + new_musicxml_path)

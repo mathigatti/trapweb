@@ -43,7 +43,7 @@ def addVoiceTags(tempo, text, content):
 
 		output += line
 
-	output = re.sub(r"<per-minute>\d+</per-minute>", f"<per-minute>{tempo}</per-minute>",output)
-	output = re.sub(r'<sound tempo="\d+"/>', f'<sound tempo="{tempo}"/>',output)
+	output = re.sub(r"<per-minute>\d+</per-minute>", "<per-minute>"+tempo+"</per-minute>",output)
+	output = re.sub(r'<sound tempo="\d+"/>', '<sound tempo="'+tempo+'"/>',output)
 
 	return output
