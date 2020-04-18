@@ -5,17 +5,18 @@ from flask import send_from_directory
 import os
 
 app = Flask(__name__)
-text = ""
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    global text
     error = ""
     if request.method == 'POST':
         # Form being submitted; grab data from form.
         text = request.form['text'].split("\n")
         bpm = int(float(request.form['bpm']))
         octave = int(float(request.form['octave']))
+        print("BPM",bpm)
+        print("OCTAVE",octave)
+
         # Validate form data
         if len(text) == 0:
             # Form data failed validation; try again
@@ -29,6 +30,24 @@ def home():
 
     return render_template('index.html', message=error)
 
+@app.route('/trap', methods=['POST'])
+def trap_api():
+    text = request.form['text'].split("\n")
+    bpm = int(float(request.form['bpm']))
+    octave = int(float(request.form['octave']))
+    print("BPM",bpm)
+    print("OCTAVE",octave)
+
+    # Validate form data
+    if len(text) == 0:
+        # Form data failed validation; try again
+        return "Please supply an input text"
+    else:
+        # Form data is valid; move along
+        timestamp = time.strftime("%Y%m%d-%H%M%S")
+        filename = "sample_"+timestamp+".wav"
+        trap(text,oct=octave,sample=filename,tempo=bpm)
+        return redirect('/sample/'+filename)
 
 @app.route('/synthesize', methods=['POST'])
 def synthesize_api():

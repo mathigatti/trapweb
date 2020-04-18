@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <title>Trap Web</title>
+</head>
+<body>
+    <h1>Trap Web</h1>
+    <div class="separator"></div>
+    <form method="POST" id="form" action="http://35.239.170.224/trap">
+    	<textarea id="lyrics" class="lyrics" aligned="center" name="text" rows="10" cols="50">
+I see the devil no heels
+I am a demon mode kill
+They want me nude in a film
+I don't do check in I pirt
+I came here with lions, the heart of a tiger, got stripe like a Bengal
+Straight out Jumanji, I walk in like Charlie I come with the angels
+        </textarea>
+        <div class="controls">
+            <fieldset id="controls">    
+                <div class="whole">
+                    <div class="half"> 
+                        <label>TEMPO</label>
+                        <input type="number" class="numeric" id="bpm" name="bpm" value="80.0" step="1" min="40.0" max="200.0">
+                    </div>
+                    <div class="half">
+                        <label>OCTAVE </label>
+                        <input type="number" class="numeric" id="octave" name="octave" value="5" step="1" min="3" max="7">
+                    </div>
+                    <div class="half">
+                            <input type="submit" class="submit-button" value="Synthesize">
+                    </div>
+                </div>
+            </fieldset>
+        </div>    
+
+    </form>
+</body>
+</html>

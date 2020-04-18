@@ -6,9 +6,25 @@ dic = pyphen.Pyphen(lang='en')
 def esVocal(texto):
     return texto in "aeiouáéíóú"
 
+continuation = "-"
+
+def extendWord(text):
+    for extensibleEnding in ["all","oh","ah","ad","as","at","al","a","e","i","o","u"]:
+        if text.endswith(extensibleEnding) or text.endswith(extensibleEnding+continuation):
+            if text.endswith(continuation):
+                additional = continuation
+            else:
+                additional = ""
+
+            if len(extensibleEnding) > 1:
+                return text[:-1*len(extensibleEnding) + 1 - len(additional)] + continuation, extensibleEnding + additional
+            else:
+                return text, extensibleEnding
+    return text, None
+
 def findSmallers(silabas):
     smallers = -1
-    min = 1000000
+    min = float('inf')
     for i in range(len(silabas)-1):
         if min > len(silabas[i]) + len(silabas[i+1]):
             min = len(silabas[i]) + len(silabas[i+1])
@@ -16,28 +32,31 @@ def findSmallers(silabas):
     return i
 
 def silabas_word(text):
-    return list(filter(lambda x : len(x) > 0, dic.inserted(text).replace(" ", "").split("-")))
+    return dic.inserted(text).replace("-", continuation + "|").split("|")
 
 def silabas_sentence(sentence):
-    sentence = sentence.lower().replace(".","").replace(",","") # limpio un toque el string
     return sum([silabas_word(word) for word in sentence.split()],[])
 
 def vocals(text,n):
- silabas = silabas_sentence(text)
- if len(silabas) == n:
-     return silabas
- elif len(silabas) < n:
-     index = 0
-     while(len(silabas) < n):
-        index = (index + 1) % len(silabas)         
-        if esVocal(silabas[index][-1]) and len(silabas[index]) > 1:
-            silabas = silabas[:index+1] + [silabas[index][-1]] + silabas[index+1:]
-     return silabas
- else:
-     while(len(silabas) > n):
-         i = findSmallers(silabas)
-         silabas = silabas[:i] + [silabas[i] + silabas[i+1]] + silabas[i+2:]
-     return silabas     
+    silabas = silabas_sentence(text)
+
+    if len(silabas) == n:
+        return silabas
+    elif len(silabas) < n:
+        if all([extendWord(silaba)[1] == None for silaba in silabas]):
+            silabas += ["a"]            
+        index = len(silabas)-1
+        while(len(silabas) < n):
+            prevPart, extensiblePart = extendWord(silabas[index])
+            if extensiblePart:
+                silabas = silabas[:index] + [prevPart, extensiblePart] + silabas[index+1:]
+            index = (index - 1) % len(silabas)         
+        return silabas
+    else:
+        while(len(silabas) > n):
+            i = findSmallers(silabas)
+            silabas = silabas[:i] + [silabas[i] + silabas[i+1]] + silabas[i+2:]
+        return silabas      
 
 def fillSpaces(text):
     missing_values = 12-len(text)

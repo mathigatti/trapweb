@@ -1,0 +1,95 @@
+body{
+    background-color: #02066F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:0;
+    color: white;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+h1{
+    background-color: #00022E;
+    width: 100%;
+    margin: 0;
+   
+}
+
+textarea {
+   resize: none;
+   width:100%;
+}
+
+.separator{
+    height:.5em;
+    background-color:  #FF073A;
+    width: 100%;
+
+}
+
+.lyrics{
+    min-height: 4em;
+    background-color: white;
+    color:  #00022E;
+    margin: 1em 0;
+    padding: .5em;
+}
+
+
+form {
+    max-width: 50em;
+    width: 100%;
+    min-width:20em;
+}
+
+fieldset{
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+label{
+    display: inline-block;
+    width: 8em;
+}
+
+.notes{
+    width: 4em;
+}
+
+.controls{
+    display: flex;
+    width:100%;
+    border: 1px solid white;
+    justify-content: space-between;
+    padding: .5em;
+}
+
+.whole{
+    display: flex;
+}
+
+.half{
+    flex:1;
+}
+
+.numeric{
+    width: 4em;
+
+}
+
+.submit-button{
+    background-color:  #FF073A;
+    color: white;
+    border-radius: .5em;
+    padding: .5em;
+    margin: .5em 0;
+    cursor: pointer;
+}
+
+.play{
+    align-self: center;
+}
+
