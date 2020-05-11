@@ -70,4 +70,4 @@ def sample(path):
 
 # Run the application
 #app.run(host="0.0.0.0",port=5555,ssl_context=context,debug=True)
-app.run(host="0.0.0.0",port=5555,debug=True)
+app.run(host="0.0.0.0",port=80,debug=True)
