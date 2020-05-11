@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)https://fifteen.ai/app -->
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="icon" href="./favicon.png" />
+        <link rel="stylesheet" href="./styles/all.min.css" />
+        <link rel="stylesheet" href="./styles/pro.min.css" media="all" />
+        <link rel="stylesheet" href="./styles/pro-v4-font-face.min.css" media="all" />
+        <link rel="stylesheet" href="./styles/pro-v4-shims.min.css" media="all" />
+        <title>Cortazar 2.0</title>
+        <meta name="viewport" content="width=device-width,user-scalable=no" />
+        <meta name="description" content="Herramienta de conversión de texto a voz." />
+        <link href="./styles/app.3cb910f5.css" rel="preload" as="style" />
+        <link href="./styles/chunk-vendors.1c2cab8f.css" rel="preload" as="style" />
+        <link href="./styles/chunk-vendors.1c2cab8f.css" rel="stylesheet" />
+        <link href="./styles/app.3cb910f5.css" rel="stylesheet" />
+        <style type="text/styles">
+            .resize-observer[data-v-b329ee4c] {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                width: 100%;
+                height: 100%;
+                border: none;
+                background-color: transparent;
+                pointer-events: none;
+                display: block;
+                overflow: hidden;
+                opacity: 0;
+            }
+            .resize-observer[data-v-b329ee4c] object {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                overflow: hidden;
+                pointer-events: none;
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <noscript><strong></strong></noscript>
+        <div data-v-c23a3218="" id="app" class="h-screen">
+            <div data-v-c23a3218="">
+                <header data-v-77fe39de="" id="header" class="w-full sticky top-0 z-40 h-12 flex items-center justify-between bg-white">
+                    <div data-v-77fe39de="" class="flex items-center justify-between w-288 px-1 sm:px-4 mx-auto">
+                        <div data-v-77fe39de="" class="flex items-center">
+                            <div data-v-77fe39de="" class="flex mr-2 sm:hidden p-2 rounded hover:bg-gray-200 cursor-pointer"><i data-v-77fe39de="" class="fas fa-bars" aria-hidden="true"></i></div>
+                            <div data-v-77fe39de="" class="mr-8 font-bold">
+                                <a data-v-77fe39de="" href="https://mathigatti.com/"><p data-v-77fe39de="" class="text-black hover:text-gray-600">Mathi Gatti</p></a>
+                            </div>
+                        </div>
+                        <div data-v-77fe39de="" class="flex items-center justify-end">
+                            <p data-v-77fe39de="" class="text-sm px-2 sm:px-4 cursor-default">Queued: <span data-v-77fe39de="" class="font-semibold has-tooltip" data-original-title="null">0</span></p>
+                        </div>
+                    </div>
+                </header>
+                <div>
+                    <div class="w-full sm:w-288 px-4 mx-auto mt-2 sm:mt-8 mb-2 sm:mb-8 flex items-center flex-col sm:flex-row">
+                        <div class="w-full flex items-center sm:w-auto flex-col sm:flex-row">
+                            <span class="w-full text-sm sm:text-base sm:w-auto sm:mr-4 sm:text-xl font-light cursor-default"> Categoría: </span>
+                            <span class="w-full sm:w-84 bg-white cursor-pointer">
+                                <div tabindex="0" class="multiselect">
+                                    <div class="multiselect__select"></div>
+                                    <div class="multiselect__tags">
+                                        <div class="multiselect__tags-wrap" style="display: none;"></div>
+                                        <div class="multiselect__spinner" style="display: none;"></div>
+                                        <span class="multiselect__single">Literatura Argentina</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="mt-2 sm:mt-0 w-full flex items-center sm:w-auto flex-col sm:flex-row">
+                            <span class="w-full text-sm sm:text-base sm:w-auto sm:ml-10 sm:mr-4 sm:text-xl font-light cursor-default"> Personaje: </span>
+                            <span class="w-full sm:w-48 bg-white cursor-pointer">
+                                <div tabindex="0" class="multiselect">
+                                    <div class="multiselect__select"></div>
+                                    <div class="multiselect__tags">
+                                        <div class="multiselect__tags-wrap" style="display: none;"></div>
+                                        <!---->
+                                        <div class="multiselect__spinner" style="display: none;"></div>
+                                        <!---->
+                                        <span class="multiselect__single">Julio Cortazar</span>
+                                        <!---->
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="mt-2 sm:mt-0 w-full flex items-center sm:w-auto flex-col sm:flex-row">
+                            <span class="w-full text-sm sm:text-base sm:w-auto sm:ml-10 sm:mr-4 sm:text-xl font-light cursor-default"> Emoción: </span>
+                            <span class="w-full sm:w-48 bg-white cursor-pointer">
+                                <div tabindex="0" class="multiselect multiselect--disabled">
+                                    <div class="multiselect__select"></div>
+                                    <div class="multiselect__tags">
+                                        <div class="multiselect__tags-wrap" style="display: none;"></div>
+                                        <div class="multiselect__spinner" style="display: none;"></div>
+                                        <span class="multiselect__single">Neutra</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="w-full sm:w-288 px-4 mx-auto mt-2 sm:mt-8 flex flex-col sm:flex-row items-center justify-start">
+                        <div id="image" class="w-full sm:w-1/4 h-56 bg-transparent text-center flex items-center mr-2 cursor-pointer rounded-lg hover:opacity-100 hover:bg-gray-200">
+                            <img src="./cortazar.jpg" class="w-auto h-auto mx-auto" style="max-width: 66.66%; max-height: 192px;" />
+                        </div>
+                        <form method="POST" class="w-full sm:w-100% bg-transparent h-32 sm:h-56 flex flex-col items-center ml-2"  action="http://34.72.207.135/cortazar">
+
+                                <div class="w-full h-full">
+                                    <textarea  id="first" name="text" type="text" placeholder="Escribí algo acá. Luego presioná Generar para escuchar el audio resultante. (Máximo 200 caracteres)" maxlength="200" spellcheck="false" class="resize-none border rounded focus:outline-none focus:shadow-outline h-full w-full p-2 mt-4"></textarea>
+                                    <span class="float-right text-lg text-gray-600">200</span>
+                                </div>
+                                <div class="flex items-center mt-12">
+                                    <div data-original-title="null" class="has-tooltip">
+                                        <button type="submit" class="w-32 font-semibold py-2 px-3 text-sm border border-gray-400 rounded shadow mx-2 focus:outline-none bg-gray-300 text-gray-800">
+                                            <div>Generar <i class="fas fa-waveform ml-1" aria-hidden="true"></i></div>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button class="w-10 font-semibold py-2 px-3 text-sm border border-gray-400 rounded shadow mx-2 focus:outline-none bg-white hover:bg-gray-200 text-gray-800 has-tooltip" data-original-title="null">
+                                            <div><i class="fas fa-question" aria-hidden="true"></i></div>
+                                        </button>
+                                    </div>
+                                </div>
+
+                        </form>
+
+                    </div>
+                    <div class="hidden w-full sm:w-288 mx-auto mt-2 mb-8 sm:flex items-center justify-start">
+                        <div class="w-1/4 text-center text-sm">
+                            <span class="font-normal cursor-default">
+                                Voz generada a partir de entrenar una red neuronal artificial con 30 minutos de grabacion de <a href="https://es.wikipedia.org/wiki/Julio_Cort%C3%A1zar" target="_blank" class="cursor-pointer hover:bg-gray-300 rounded p-1 font-medium">Julio Cortazar</a>.
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="w-full sm:w-288 h-48 text-center px-4 mx-auto my-8 flex flex-col items-center justify-center text-gray-600 text-xl">
+                            <div class="text-sm text-gray-700 font-medium my-4 sm:mt-8">Sitio web inspirado en <a href="https://15.ai">15.ai</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
